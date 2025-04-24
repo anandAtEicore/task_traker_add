@@ -7,6 +7,9 @@ import { DatePickerInput } from 'react-native-paper-dates';
 import { useState } from 'react';
 import { en, registerTranslation } from 'react-native-paper-dates';
 import { VStack } from './ui/vstack';
+import { Send, X } from 'lucide-react-native';
+import CustomButtonDate from './CustomButtonDate';
+import CustomButton from './CustomButton';
 
 // Register English locale for date picker
 registerTranslation('en', en);
@@ -104,18 +107,17 @@ export default function TaskFilterModal({
 
           {/* Buttons */}
           <ThemedView style={styles.modalButtonContainer}>
-            <TouchableOpacity
-              style={[styles.modalButton, styles.clearButton]}
-              onPress={handleClearFilters}
-            >
-              <ThemedText style={styles.modalButtonText}>Clear</ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.modalButton, styles.applyButton]}
-              onPress={handleApplyFilters}
-            >
-              <ThemedText style={styles.modalButtonText}>Apply</ThemedText>
-            </TouchableOpacity>
+          <CustomButton
+                      title="Clear"
+                      onPress={handleClearFilters}
+                      icon={<X size={16} color="#FFFFFF" />}
+                    />
+                      <CustomButton
+                      title="Apply"
+                      onPress={handleApplyFilters}
+                      icon={<Send size={16} color="#FFFFFF" />}
+                    />
+       
           </ThemedView>
         </ThemedView>
       </ThemedView>
@@ -175,8 +177,9 @@ const styles = StyleSheet.create({
   },
   modalButtonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     marginTop: 16,
+    gap:10
   },
   modalButton: {
     flex: 1,

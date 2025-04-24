@@ -18,7 +18,7 @@ import TaskFilterModal from "@/components/TaskFilterModal";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import UpdateTicketModal from "@/components/UpdateTicketModal";
 import CustomButton from "@/components/CustomButton";
-import { ArrowLeft, ArrowRight, Edit, Plus } from "lucide-react-native";
+import { ArrowLeft, ArrowRight, Edit, Filter, Plus } from "lucide-react-native";
 import { router } from "expo-router";
 import Toast from "react-native-toast-message";
 
@@ -380,7 +380,6 @@ export default function TaskTrackerScreen() {
           Entry Logs
         </ThemedText>
         <TouchableOpacity
-          onPress={() => setModalVisible(true)}
           style={styles.titleContainer2}
         >
           <CustomButton
@@ -388,12 +387,12 @@ export default function TaskTrackerScreen() {
             onPress={() => router.push("/(tabs)/entry-form")}
             icon={<Plus size={16} color="#FFFFFF" />}
           />
-          <Icon
-            name="filter"
-            size={24}
-            color="#1f2937"
-            style={{ marginRight: 15 }}
+          <CustomButton
+            title="Add"
+            onPress={() => setModalVisible(true)}
+            icon={<Filter size={16} color="#FFFFFF" />}
           />
+         
         </TouchableOpacity>
       </ThemedView>
 
